@@ -20,7 +20,7 @@ var Movies = Backbone.Collection.extend({
 
   initialize: function() {
     // your code here
-    this.on('change', this.sort, this);
+    this.on('change', this.sort);
   },
 
   comparator: 'title',
@@ -88,9 +88,8 @@ var MovieView = Backbone.View.extend({
 var MoviesView = Backbone.View.extend({
 
   initialize: function() {
-    // your code here CHECK THIS
-    this.render();
-    this.collection.on('change', this.render, this);
+    // your code here
+    this.collection.on('sort', this.render, this);
   },
 
   render: function() {
